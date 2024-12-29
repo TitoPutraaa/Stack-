@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.util.Arrays;
+import java.util.Stack;
 
 public class Main {
 
@@ -26,7 +27,7 @@ public class Main {
             System.out.println("stack full, tidak dapat menambahkan value baru");
         } else {
             stack[++top] = value;
-            System.out.println("menambahkan value " + value + " top menjadi : " + top);
+            System.out.println("menambahkan value " + value + ", top menjadi : " + top);
         }
     }
 
@@ -58,6 +59,7 @@ public class Main {
     }
     
     public static void main(String[] args) {
+
         addValue();
         System.out.println(Arrays.toString(stack));
     }
