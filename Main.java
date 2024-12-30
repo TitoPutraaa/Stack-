@@ -1,66 +1,52 @@
-import java.util.Scanner;
+// make Stack data Structure 
 import java.util.Arrays;
-import java.util.Stack;
+import java.util.Scanner;
 
 public class Main {
 
     static Scanner scan = new Scanner(System.in);
-
-    static int jumlahStack = maxStakc(scan);
-
+    static int stack[] = new int[3];
     static int top = -1;
-    static int[] stack = new int[jumlahStack];
 
-    // check the stack empty or not 
-    static boolean isKosong() {
+    // method to check is stack empty or not 
+    static Boolean isEmpty() {
         return top == -1;
     }
 
-    // check the stack full or not 
-    static boolean isFull(int top, int[] stack) {
+    // method to check is stack full or not 
+    static boolean isFull() {
         return top == stack.length-1;
     }
 
-    // method to push value 
+    // method to push value to stack and check whether stack full or not 
     static void push(int value) {
-        if (isFull(top, stack)) {
-            System.out.println("stack full, tidak dapat menambahkan value baru");
+        if (isFull()) {
+            System.out.println("this stack is full");
         } else {
             stack[++top] = value;
-            System.out.println("menambahkan value " + value + ", top menjadi : " + top);
+            System.out.println(Arrays.toString(stack));
         }
     }
 
-    // method to delete value
     static void pop() {
-        if(isKosong()) {
-            System.out.println("stack kosong, tidak dapat menghapus stack");
+        if (isEmpty()) {
+            System.out.println("stack is empty");
         } else {
-            System.out.println("menghapus value stack " + stack[top]);
             stack[top--] = 0;
-            System.out.println("top menjadi " + top);
+            System.out.println(Arrays.toString(stack));
         }
     }
 
-
-    // add maximal stack 
-    static int maxStakc(Scanner scan) {
-        System.out.print("masukan maksimal jumlah stack : ");
-        int jml = scan.nextInt();
-        return jml;
-    }
-
-    // add maximal value in stack
-    static void addValue() {
-        for (int i = 0; i < jumlahStack; i++) {
-            System.out.print("value stack ke " + i + " : ");
-            stack[i] = scan.nextInt();
+    static void scanInputValue() {
+        for (int i = 0; i < stack.length; i++) {
+            System.out.print("top is "+ (top +1) +", add value : ");
+            int addValue = scan.nextInt();
+            push(addValue);
         }
     }
-    
+
     public static void main(String[] args) {
+        scanInputValue();
 
-        addValue();
-        System.out.println(Arrays.toString(stack));
     }
 }
