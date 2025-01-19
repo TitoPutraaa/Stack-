@@ -20,7 +20,7 @@ public class Main {
 
     // method to push value to stack and check whether stack full or not 
     static void push(int value) {
-        if (isFull()) {
+        if (isFull()) { 
             System.out.println("this stack is full");
         } else {
             stack[++top] = value;
@@ -46,7 +46,18 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        scanInputValue();
+        // kapasitas stack = 3
+    System.out.println("push");
+    push(10);
+    System.out.println("push");
+    push(20);
+    System.out.println("push");
+    push(30);
+    System.out.println("pop");
+    pop();
+    System.out.println("pop");
+    pop();
+    System.out.println("top ada pada index ke : " + top);
 
     }
 }
